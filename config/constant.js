@@ -4,5 +4,7 @@ dotenv,config()
 // add constant values here
 export const {
 PORT,
-MongoURL
+MongoURL,
+JWTSECRET,
+JWTEXPIRE
 } = process.env
