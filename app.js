@@ -1,7 +1,7 @@
 import express  from "express";
 import cors from 'cors';
 import helmet from 'helmet';
-import { db } from "./config/connection";
+import { db } from "./config/connection.js";
 import routes from "./routes/index.js";
 const app = express();
 
