@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv,config()
+dotenv.config()
 
 // add constant values here
 export const {

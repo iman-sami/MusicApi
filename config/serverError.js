@@ -1,4 +1,4 @@
-export class serverError extends Error(){
+export default class serverError extends Error{
   constructor(msg,statusCode){
     super(msg);
 

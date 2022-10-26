@@ -1,6 +1,6 @@
-import { catchAsync } from "../middleware/errorHandler";
+import { catchAsync } from "../middleware/errorHandler.js";
 import music from "../models/music.js";
-import serverError  from "../config/serverError";
+import serverError  from "../config/serverError.js";
 import { json } from "express";
 export const MusicController = {
     // all music

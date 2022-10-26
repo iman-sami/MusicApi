@@ -1,4 +1,3 @@
-import serverError  from "../config/serverError";
 
 function sendError(err,res){
     res.status(err.statusCode).json({
