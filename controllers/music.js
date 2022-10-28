@@ -35,6 +35,21 @@ export const MusicController = {
             if(err) return next(new serverError(err.message,404))
             res.json(results)
         })
+    }),
+    // upload music
+    uploadMusic:catchAsync(async (req,res,next)=>{
+        const data = req.body
+        music.insertMany([
+            data
+        ])
+        .then((responce)=>{
+            res.json({
+                message:"musics uploaded",
+                responce
+            })
+        }).catch((err)=>{
+            return next(new serverError(err.message),404)
+        })
     })
 
 }
