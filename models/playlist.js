@@ -5,8 +5,13 @@ const playlist = new Schema({
 
     playlistTitle:{type:String},
     date:{type:Date},
-    Songs:{
-        type:Array
+    Songs:[{
+        type:Schema.Types.ObjectId,
+        ref:"music"
+    }],
+    userid:{
+        type:Schema.Types.ObjectId,
+        ref:"user"
     }
 })
 
