@@ -53,5 +53,6 @@ deletePlaylist:catchAsync(async (req,res,next)=>{
         if (err) return next (new serverError(err.message,404))
         res.json(results)
     })
-})
+ })
+ 
 }
