@@ -25,4 +25,16 @@ export const MusicController = {
         })
     }),
 
+    // search music 
+    searchMusic:catchAsync(async (req,res,next)=>{
+        const musicsearch = req.query.musictitle
+        music.findOne({title:musicsearch})
+        .populate("album")
+        .populate("genre")
+        .exec((err,results)=>{
+            if(err) return next(new serverError(err.message,404))
+            res.json(results)
+        })
+    })
+
 }
