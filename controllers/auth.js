@@ -6,14 +6,13 @@ import { createToken } from "../config/utils.js";
 export const AuthController= {
     // register new user
     register: catchAsync(async (req,res,next)=>{
+    
         const data= req.body
-        await bcrypt.hash(data.password,12)
-        const email = data.email
-        const userExisit = user.findOne({email:email})
+        data.password =  await bcrypt.hash(data.password,12)
+        const userExisit = user.findOne({email:data.email})
         if(userExisit) return next(new serverError("User Already Exisist!!",404))
-        await user.create({
-            data
-        })
+        console.log(userExisit)
+        await user.create(data)
         .then((responce)=>{
             createToken(responce,res.statusCode,res)
         }).catch((err)=>{
