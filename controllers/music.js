@@ -1,5 +1,7 @@
 import { catchAsync } from "../middleware/errorHandler.js";
 import music from "../models/music.js";
+import album from "../models/album.js";
+import artist from "../models/artist.js";
 import serverError  from "../config/serverError.js";
 import { json } from "express";
 export const MusicController = {
@@ -50,6 +52,34 @@ export const MusicController = {
         }).catch((err)=>{
             return next(new serverError(err.message),404)
         })
-    })
+    }),
+
+    // selected album 
+
+    selectedAlbum:{
+
+
+
+    },
+
+    // selected artist
+
+    selectedArtist:{
+
+    },
+
+    // all artists
+
+    artists:{
+
+
+
+    },
+
+   // selected artist albums
+    selectedArtistAlbums:{
+
+        
+    }
 
 }
