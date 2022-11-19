@@ -5,7 +5,6 @@ import serverError from "../config/serverError.js";
 import { createToken } from "../config/utils.js";
 import jsonwebtoken from "jsonwebtoken";
 import { JWTSECRET } from "../config/constant.js";
-import user from "../models/user.js";
 export const AuthController= {
     // register new user
     register: catchAsync(async (req,res,next)=>{
@@ -35,6 +34,7 @@ export const AuthController= {
     const email = data.email
         user.findOne({email:email}).exec(async (err,results)=>{
                 if(err) return next (new serverError(err,404))
+                console.log(results.email)
                 if(results && await bcrypt.compare(data.password,results.password)){
                     createToken(results,res.statusCode,res)
                 }else{
