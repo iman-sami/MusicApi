@@ -35,7 +35,7 @@ export const AuthController= {
         user.findOne({email:email}).exec(async (err,results)=>{
                 if(err) return next (new serverError(err,404))
                 console.log(results.email)
-                if(results && await bcrypt.compare(data.password,results.password)){
+                if(bcrypt.compare(data.password,results.password)){
                     createToken(results,res.statusCode,res)
                 }else{
                     return next(new serverError("No user Found Please Register",404))
